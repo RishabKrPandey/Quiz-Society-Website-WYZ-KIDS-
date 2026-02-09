@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archive | WYZ KIDS</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-brand"><a href="index.html">WYZ KIDS</a></div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="#" class="active">Archive</a>
+            <a href="#" class="btn-outline">Join Society</a>
+        </div>
+    </nav>
+
+    <header class="archive-hero">
+        <h1>The Archive</h1>
+        <p>A visual history of our quizzes.</p>
+    </header>
+
+    <div class="filter-bar">
+        <span class="filter active" data-filter="all">All</span>
+        <span class="filter" data-filter="flagship">Flagship</span>
+        <span class="filter" data-filter="cultural">Cultural</span>
+        <span class="filter" data-filter="tech">Sci-Tech</span>
+        <span class="filter" data-filter="sports">Sports</span>
+        <span class="filter" data-filter="general">General</span>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            
+            <div class="events-grid">
+                
+                <h3 class="year-label full-width-header">2026 SEASON</h3>
+
+                <div class="event-card" data-category="flagship">
+                    <div class="card-image">
+                        <img src="Image/margazhi 26.png" alt="Qutopia Poster">
+                        <span class="tag-overlay">Flagship</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Qutopia O' Margazhi 26</h3>
+                        <p class="date">Jan 2026</p>
+                        <p class="description">Open Air Theatre. The big one. Cash prizes await.</p>
+                        <a href="#" class="btn-text">Completed &rarr;</a>
+                    </div>
+                </div>
+
+                <h3 class="year-label full-width-header">2025 SEASON</h3>
+
+                <div class="event-card" data-category="flagship">
+                    <div class="card-image">
+                        <img src="Image/Savaan 25.png" alt="MELA Poster">
+                        <span class="tag-overlay">Flagship</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Qutopia O' Savaan 25</h3>
+                        <p class="date">Sept 2025</p>
+                        <p class="description">Music & Arts quiz</p>
+                        <a href="#" class="btn-text">Completed &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="event-card" data-category="flagship">
+                    <div class="card-image">
+                        <img src="Image/paradox 25.png" alt="Tech Quiz Poster">
+                        <span class="tag-overlay">Flagship</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Qutopia O' Paradox 25</h3>
+                        <p class="date">May 2025</p>
+                        <p class="description">A brilliant showdown. Winner: Team Paradox.</p>
+                        <a href="events.html" class="btn-text">Read Recap &rarr;</a>
+                    </div>
+                </div>
+
+                <h3 class="year-label full-width-header">2024 SEASON</h3>
+
+                <div class="event-card" data-category="general">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=600" alt="Launch Event">
+                        <span class="tag-overlay">General</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Inaugural Quiz</h3>
+                        <p class="date">DEC 2024</p>
+                        <p class="winner">🏆 Winner: Kaveri</p>
+                    </div>
+                </div>
+
+                <div class="event-card" data-category="tech">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=600" alt="Discord">
+                        <span class="tag-overlay">Sci-Tech</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Discord Trivia</h3>
+                        <p class="date">NOV 2024</p>
+                        <p class="winner">🏆 Winner: Multiple</p>
+                    </div>
+                </div>
+
+                <div class="event-card" data-category="cultural">
+                    <div class="card-image">
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=600" alt="Pop Culture">
+                        <span class="tag-overlay">Cultural</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Pop Culture 101</h3>
+                        <p class="date">OCT 2024</p>
+                        <p class="winner">🏆 Winner: Alaknanda</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer><p>WYZ KIDS &copy; 2026</p></footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filters = document.querySelectorAll('.filter');
+            const allCards = document.querySelectorAll('.event-card');
+            const yearLabels = document.querySelectorAll('.year-label');
+
+            filters.forEach(filter => {
+                filter.addEventListener('click', () => {
+                    // 1. Manage Active Class
+                    filters.forEach(btn => btn.classList.remove('active'));
+                    filter.classList.add('active');
+
+                    const category = filter.getAttribute('data-filter');
+
+                    // 2. Logic: Show/Hide Year Headers
+                    if (category === 'all') {
+                        yearLabels.forEach(label => label.style.display = 'block');
+                    } else {
+                        yearLabels.forEach(label => label.style.display = 'none');
+                    }
+
+                    // 3. Logic: Filter Cards
+                    allCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        if (category === 'all' || cardCategory === category) {
+                            card.style.display = 'block';
+                            // Reset Animation
+                            card.style.opacity = '0';
+                            card.style.animation = 'none';
+                            setTimeout(() => {
+                                card.style.animation = 'fadeIn 0.5s forwards';
+                            }, 10);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
